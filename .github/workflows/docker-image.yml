@@ -36,6 +36,7 @@ jobs:
         cd aio-base
         docker build -t axelor/aio-base .
     - name: Build the builder Docker image
+      continue-on-error: true
       run: |
         cd aio-builder
         docker build -t axelor/aio-builder .
