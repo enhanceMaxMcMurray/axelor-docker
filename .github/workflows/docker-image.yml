@@ -31,6 +31,7 @@ jobs:
 #        apt-get remove nginx* && sudo apt-get install nginx-full
 #        docker compose version
     - name: Build the base Docker image
+      continue-on-error: true
       run: |
         cd aio-base
         docker build -t axelor/aio-base .
