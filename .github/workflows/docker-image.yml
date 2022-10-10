@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the base Docker image
+      run: |
+        cd aio-base
+        docker build -t axelor/aio-base .
+    - name: Build the builder Docker image
+      run: |
+        cd aio-builder
+        docker build -t axelor/aio-builder .
+    - name: Build the app Docker image
+      run: |
+        cd aio-erp
+        docker build -t axelor/aio-erp .
+    - name: Run app container
+      run: docker run -it -p 8080:80 axelor/aio-erp
+        
