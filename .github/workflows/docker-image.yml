@@ -5,6 +5,7 @@ on:
     branches: [ "master" ]
   repository_dispatch:
     types: [trigger-build]
+  workflow_dispatch:
 
 jobs:
   build:
