@@ -31,6 +31,12 @@ jobs:
 #        apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 #        apt-get remove nginx* && sudo apt-get install nginx-full
 #        docker compose version
+    - name: Reset docker
+      run: |
+        service docker restart  
+    - name: Remove broken/old/unused docker images/containers
+      run: |
+        docker system prune -a -f
     - name: Build the base Docker image
       run: |
         cd aio-base
