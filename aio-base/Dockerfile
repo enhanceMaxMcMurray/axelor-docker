@@ -88,7 +88,7 @@ RUN set -ex \
 	&& DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y \
 		supervisor gosu postgresql-9.6 postgresql-contrib-9.6 \
-		libapr1 nginx nginx-module-xslt nginx-module-geoip nginx-module-image-filter nginx-module-njs gettext-base \
+		libapr1 nginx nginx-module-xslt nginx-module-geoip nginx-module-image-filter gettext-base \
 		git-core nodejs yarn \
 	&& rm -rf /var/lib/apt/lists/*
 

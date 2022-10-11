@@ -37,3 +37,4 @@ $ docker run -it -p 8080:80 axelor/aio-erp
 
 Once app completes database initialization, it can be access at: http://localhost:8080
 
+Many thanks to [SiddiqueAhmad](https://github.com/SiddiqueAhmad) for his recent patches.
