@@ -3,13 +3,13 @@ name: Docker Image CI
 on:
   push:
     branches: [ "master" ]
+  repository_dispatch:
+    types: [trigger-build]
 
 jobs:
-
   build:
-
-    runs-on: self-hosted
-
+    runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v3
 #    - name: Install Docker
@@ -31,12 +31,10 @@ jobs:
 #        apt-get remove nginx* && sudo apt-get install nginx-full
 #        docker compose version
     - name: Build the base Docker image
-      continue-on-error: true
       run: |
         cd aio-base
         docker build -t axelor/aio-base .
     - name: Build the builder Docker image
-      continue-on-error: true
       run: |
         cd aio-builder
         docker build -t axelor/aio-builder .
@@ -45,6 +43,6 @@ jobs:
         cd aio-erp
         docker build -t axelor/aio-erp .
     
-    - name: Run app container
-      run: docker run -p 8080:80 axelor/aio-erp &
+#     - name: Run app container
+#       run: docker run -p 8080:80 axelor/aio-erp &
         
