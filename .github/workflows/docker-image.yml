@@ -44,6 +44,7 @@ jobs:
       run: |
         cd aio-erp
         docker build -t axelor/aio-erp .
+    
     - name: Run app container
-      run: docker run -p 8080:80 axelor/aio-erp
+      run: docker run -p 8080:80 axelor/aio-erp &
         
