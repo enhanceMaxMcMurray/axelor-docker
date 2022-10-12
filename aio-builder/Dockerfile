@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM adoptopenjdk/openjdk8
 LABEL maintainer="Axelor <support@axelor.com>"
 
 RUN set -ex \
