@@ -36,6 +36,7 @@ jobs:
         service docker restart  
     - name: Remove broken/old/unused docker images/containers
       run: |
+        sleep 3
         docker system prune -a -f
     - name: Build the base Docker image
       run: |
