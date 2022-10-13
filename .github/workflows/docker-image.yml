@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
     - uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
 #        docker compose version
     - name: Reset docker
       run: |
-        dockerd
+        service docker restart
     - name: Remove broken/old/unused docker images/containers
       run: |
         sleep 3
@@ -51,6 +51,6 @@ jobs:
         cd aio-erp
         docker build -t axelor/aio-erp .
     
-#     - name: Run app container
-#       run: docker run -p 8080:80 axelor/aio-erp &
+    - name: Run app container
+      run: docker run -p 8080:80 axelor/aio-erp &
         
