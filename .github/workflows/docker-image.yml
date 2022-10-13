@@ -33,7 +33,7 @@ jobs:
 #        docker compose version
     - name: Reset docker
       run: |
-        service docker restart  
+        dockerd
     - name: Remove broken/old/unused docker images/containers
       run: |
         sleep 3
